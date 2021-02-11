@@ -16,25 +16,19 @@
             color="blue"
             background-color="#fff"
         >
-          <v-tab>博文列表</v-tab>
-          <v-tab>归档</v-tab>
-          <v-tab>时间线</v-tab>
-          <v-tab>友人帐</v-tab>
+          <v-tab to="/blogs">博文列表</v-tab>
+          <v-tab to="/archive">归档</v-tab>
+          <v-tab to="/time-line">时间线</v-tab>
+          <v-tab to="/friends">友人帐</v-tab>
         </v-tabs>
       </v-spacer>
 
       <!-- 最右边的两个按钮 -->
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
       <v-avatar tile>
-        <img
-            :src="avatarUrl"
-        >
+        <img :src="avatarUrl">
       </v-avatar>
 
     </v-app-bar>
