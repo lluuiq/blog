@@ -1,0 +1,118 @@
+@import "variables.scss";
+
+.markdown-body {
+  padding: 0 15px;
+  color: $font-color;
+
+  // 123456级标题的样式
+  h2, h3, h4, h5, h6 {
+    color: $title-color;
+  }
+
+  // h2标题下方的边框
+  h2 {
+    border-color: $title-color;
+  }
+
+  strong {
+    margin: 0 .2em 0 .2em;
+  }
+
+  // 正文文本
+  p {
+    // 行内代码块`` 的样式
+    code {
+      padding: .2em .3em;
+      margin: 0 .2em 0 .2em;
+      font-size: 85%;
+      color: #868A95 !important;
+      background-color: $code-background-color !important;
+      border-radius: 3px;
+    }
+  }
+
+  // 分隔线
+  hr {
+    background-color: $font-color;
+    margin: 24px auto;
+    height: 2px;
+    opacity: 0.4;
+  }
+
+  // 表格
+  table {
+    border-spacing: 2px;
+    // 表头
+    thead {
+      tr {
+        background-color: inherit;
+
+        th {
+          border: gray solid 2px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    // 表格内容
+    tbody {
+      tr {
+        background-color: inherit;
+
+        td {
+          border: #808080 solid 2px;
+        }
+      }
+
+      // 间隔一行的样式
+      tr:nth-child(2n) {
+        background-color: inherit;
+        //background-color: red;
+      }
+    }
+  }
+
+
+  // 代码区
+  pre {
+    background-color: $code-background-color;
+    color: $font-color;
+    line-height: 2em;
+    font-size: 18px;
+    font-family: Consolas, Liberation Mono, Menlo, monospace;
+
+    // 代码区里面的每一行代码块
+    code {
+      background: none !important;
+    }
+  }
+
+  // 高亮
+  mark {
+    margin: 0 .2em 0 .2em;
+    background-color: $font-color;
+    font-style: normal;
+  }
+
+  // 删除线文字
+  s {
+    text-decoration-color: $font-color;
+    font-style: italic;
+  }
+
+  //blockquote 引用
+  blockquote {
+    // 正文背景颜色
+    background: #454a57;
+    // 左侧边框的样式
+    border-left: 10px solid green;
+    color: $font-color;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-weight: bold;
+
+    p {
+      display: inline;
+    }
+  }
+}

@@ -1,5 +1,9 @@
 <template>
-  <div>时间线</div>
+  <div>
+    <v-card color="#383C4A">
+      时间线
+    </v-card>
+  </div>
 </template>
 
 <script>

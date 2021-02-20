@@ -1,0 +1,176 @@
+<template>
+  <div>
+    <!-- 博主信息卡片 -->
+    <v-card
+        class="d-flex justify-center"
+        flat
+        color="#383C4A"
+        :width="cardWidth"
+    >
+
+      <!-- 一列 -->
+      <v-col class="pa-0">
+        <p>{{ img1.opacity }}</p>
+        <p>{{ img2.opacity }}</p>
+        <p>{{ img3.opacity }}</p>
+        <p>{{ img4.opacity }}</p>
+        <!-- 图片 -->
+        <v-img
+            position="absolute"
+            v-bind:style="img1"
+            class="img1"
+            :height="imgHeight"
+            :width="cardWidth"
+            style="border-bottom: solid 1px;"
+            :src="img1Url"
+        >
+          <v-img
+              position="absolute"
+              v-bind:style="img2"
+              class="img2"
+              :height="imgHeight"
+              :width="cardWidth"
+              style="border-bottom: solid 1px;"
+              :src="img2Url"
+          >
+            <v-img
+                position="absolute"
+                v-bind:style="img3"
+                class="img3"
+                :height="imgHeight"
+                :width="cardWidth"
+                style="border-bottom: solid 1px;"
+                :src="img3Url"
+            >
+              <v-img
+                  position="absolute"
+                  v-bind:style="img4"
+                  class="img4"
+                  :height="imgHeight"
+                  :width="cardWidth"
+                  style="border-bottom: solid 1px;"
+                  :src="img4Url"
+              />
+            </v-img>
+          </v-img>
+        </v-img>
+        <!--</div>-->
+        <!-- 头像居中 -->
+        <v-card
+            class="d-flex justify-center"
+            color="#383C4A"
+            tile
+            flat
+        >
+          <!-- 头像 -->
+          <v-avatar
+              class="profile mt-5 mb-1"
+              size="100"
+              tile
+          >
+            <v-img :src="this.config.avatar"></v-img>
+          </v-avatar>
+        </v-card>
+        <v-card-text>
+
+          <!-- 签名 -->
+          <v-row justify="center">
+            <div class="font-weight-bold">
+              <p style="color: #9FBC82" class="mb-0">{{ this.config.sign }}</p>
+              <hr class="mt-1">
+            </div>
+          </v-row>
+
+          <!-- 社交图标 -->
+          <v-row justify="space-around">
+            <v-btn icon target="_blank" v-show="this.config.twitter" :href="this.config.twitter">
+              <v-icon color="black darken-2">mdi-twitter</v-icon>
+            </v-btn>
+
+            <!-- github -->
+            <v-btn icon target="_blank" v-show="this.config.github" :href="this.config.github">
+              <v-icon color="black darken-2">mdi-github</v-icon>
+            </v-btn>
+
+            <!-- bilibili -->
+            <v-btn icon target="_blank" v-show="this.config.bilibili" :href="this.config.bilibili">
+              <svg t="1613193416821" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                   xmlns="http://www.w3.org/2000/svg"
+                   p-id="4644" width="24" height="24">
+                <path
+                    d="M306.005333 117.632L444.330667 256h135.296l138.368-138.325333a42.666667 42.666667 0 0 1 60.373333 60.373333L700.330667 256H789.333333A149.333333 149.333333 0 0 1 938.666667 405.333333v341.333334a149.333333 149.333333 0 0 1-149.333334 149.333333h-554.666666A149.333333 149.333333 0 0 1 85.333333 746.666667v-341.333334A149.333333 149.333333 0 0 1 234.666667 256h88.96L245.632 177.962667a42.666667 42.666667 0 0 1 60.373333-60.373334zM789.333333 341.333333h-554.666666a64 64 0 0 0-63.701334 57.856L170.666667 405.333333v341.333334a64 64 0 0 0 57.856 63.701333L234.666667 810.666667h554.666666a64 64 0 0 0 63.701334-57.856L853.333333 746.666667v-341.333334A64 64 0 0 0 789.333333 341.333333zM341.333333 469.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v85.333333a42.666667 42.666667 0 0 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666666-42.666667z m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667v85.333333a42.666667 42.666667 0 0 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667z"
+                    p-id="4645"></path>
+              </svg>
+            </v-btn>
+
+            <!-- 微博 -->
+            <v-btn icon target="_blank" v-show="this.config.weibo" :href="this.config.weibo">
+              <svg t="1613193580137" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                   xmlns="http://www.w3.org/2000/svg"
+                   p-id="4916" width="24" height="24">
+                <path
+                    d="M747.733333 485.461333c53.888 16.725333 113.877333 57.002667 113.877334 128.170667 0 117.888-169.813333 266.197333-425.130667 266.197333-194.773333 0-393.813333-94.421333-393.813333-249.685333 0-81.152 51.370667-175.018667 139.818666-263.552 118.314667-118.186667 256.170667-172.074667 308.010667-120.149333 22.912 22.912 25.088 62.464 10.410667 109.738666-7.594667 23.765333 22.4 10.666667 22.4 10.666667 95.573333-40.021333 179.029333-42.410667 209.450666 1.152 16.213333 23.168 14.634667 55.722667-0.341333 93.44-6.954667 17.365333 2.048 20.096 15.36 24.021333z m-310.698666 338.730667c155.349333-15.445333 273.109333-110.592 263.125333-212.608-10.112-102.016-144.298667-172.288-299.648-156.885333-155.306667 15.36-273.194667 110.506667-263.125333 212.48 10.112 102.144 144.298667 172.330667 299.648 157.013333zM262.826667 616.021333c32.170667-65.152 115.712-101.973333 189.696-82.773333 76.501333 19.754667 115.498667 91.904 84.309333 162.133333-31.744 71.765333-122.965333 109.994667-200.32 85.034667-74.752-24.149333-106.368-97.877333-73.685333-164.394667z m61.696 110.378667c24.234667 10.965333 56.533333 0.554667 71.509333-23.466667 14.762667-24.234667 6.954667-51.925333-17.365333-62.250666-24.021333-10.112-55.082667 0.341333-69.973334 23.594666-15.104 23.338667-8.064 51.285333 15.829334 62.122667z m94.122666-77.141333c9.344 3.925333 21.376-0.512 26.794667-9.856 5.248-9.386667 1.877333-19.882667-7.594667-23.381334-9.216-3.584-20.736 0.768-26.154666 9.898667-5.248 9.130667-2.304 19.541333 6.954666 23.338667zM847.914667 405.333333a30.933333 30.933333 0 1 1-58.794667-19.242666 58.88 58.88 0 0 0-12.288-57.898667 59.52 59.52 0 0 0-56.362667-18.133333 30.848 30.848 0 1 1-12.928-60.416 121.002667 121.002667 0 0 1 140.373334 155.690666z m-167.082667-280.533333A248.789333 248.789333 0 0 1 917.333333 201.386667a249.002667 249.002667 0 0 1 52.053334 243.370666 35.754667 35.754667 0 0 1-45.226667 23.04 36.010667 36.010667 0 0 1-23.125333-45.312 176.768 176.768 0 0 0-205.098667-227.285333 36.053333 36.053333 0 0 1-15.104-70.4z"
+                    p-id="4917"></path>
+              </svg>
+            </v-btn>
+          </v-row>
+        </v-card-text>
+      </v-col>
+    </v-card>
+
+
+    <!-- 公告卡片 -->
+    <v-card color="#383C4A" :width="cardWidth" class="mt-2">
+      <v-card-text>
+        <p style="color:#9FBC82">公告</p>
+      </v-card-text>
+    </v-card>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Side",
+  data() {
+    return {
+      cardWidth: 400,
+      imgHeight: 150,
+
+      img1Url: require("@/static/img/xiaolian/0.png"),
+      img2Url: require("@/static/img/xiaolian/1.png"),
+      img3Url: require("@/static/img/xiaolian/2.png"),
+      img4Url: require("@/static/img/xiaolian/3.png"),
+
+      img1: {
+        opacity: 1
+      },
+      img2: {
+        opacity: 0
+      },
+      img3: {
+        opacity: 0
+      },
+      img4: {
+        opacity: 0
+      },
+    }
+  },
+  mounted() {
+    window.addEventListener('mousemove', this.changeImg)
+    // const wid = window.innerWidth / 3
+  },
+  methods: {
+    changeImg(e) {
+      const wid = window.innerWidth / 3
+      this.img2.opacity = (e.clientX) / wid
+      this.img3.opacity = (e.clientX) / wid - 1
+      this.img4.opacity = (e.clientX) / wid - 2
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+
+</style>
