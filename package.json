@@ -12,6 +12,7 @@
     "gitalk": "^1.7.0",
     "github-markdown-css": "^4.0.0",
     "gray-matter": "^4.0.2",
+    "js-md5": "^0.7.3",
     "markdown-it-vue": "^1.1.6",
     "marked": "^2.0.0",
     "register-service-worker": "^1.7.1",
