@@ -35,6 +35,7 @@ import 'markdown-it-vue/dist/markdown-it-vue.css'
 import Side from "@/components/public/Side";
 import Toc from "@/components/card/Toc";
 import PostProgressLinear from "@/components/plugins/PostProgressLinear";
+import github from "@/api/github";
 
 export default {
   name: "Post",
@@ -132,12 +133,18 @@ export default {
   created() {
     this.initPost()
     this.getToc()
+    this.getLastDate()
   },
   methods: {
     initPost() {
       let category = this.$route.params.category === 'default' ? '' : this.$route.params.category
       let title = this.$route.params.title
       this.post = this.$store.getters.POST_GET_POST(category, title)
+    },
+    getLastDate() {
+      github.getLastDate(this.post.path).then(res => {
+        console.log(res.data[0].commit.committer.date)
+      })
     },
     getToc() {
       // 一级目录的索引
