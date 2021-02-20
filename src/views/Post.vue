@@ -129,7 +129,7 @@ export default {
     },
     createGitalk() {
       // 传参id 获取gitalk配置
-      let params = gitalk.gitalkConf(this.$route.path)
+      let params = gitalk.gitalkConf("demo")
       // 实例化gitalk
       var gitalkObj = new Gitalk(params)
       // 挂载到html中
