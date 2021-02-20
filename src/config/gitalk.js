@@ -5,7 +5,7 @@ const gitalkConf = (id) => {
         repo: 'blog-comment',
         owner: 'lluuiq',
         admin: ['lluuiq'],
-        id: "", // 在使用时赋值，用于区分不同页面显示不同的评论
+        id: id, // 在使用时赋值，用于区分不同页面显示不同的评论
         createIssueManually: true,
         proxy: 'https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token',
         distractionFreeMode: false
