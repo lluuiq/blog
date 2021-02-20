@@ -5,6 +5,10 @@ import router from './router'
 import vuetify from './plugins/vuetify';
 import store from './store'
 
+
+// 导入日期重写配置 new Date().format("yyyy-MM-dd hh:mm:ss")
+import '@/utils/date';
+
 // 导入个人配置
 import config from '@/config/config';
 

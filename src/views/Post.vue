@@ -10,10 +10,15 @@
               {{ post.title }}
             </h1>
           </v-card-title>
+          <p>创建时间：{{ createDate }}</p>
+          <p>最后更新时间：{{ lastDate }}</p>
 
           <!-- 正文,css格式在@/assets/css/markdown.scss -->
           <Markdown class="markdown-body" :content="post.content" :options="options"/>
         </v-card>
+
+        <!-- gitalk评论 -->
+        <div id="gitalk-container"></div>
       </v-col>
 
       <!-- 侧边栏 -->
@@ -36,6 +41,9 @@ import Side from "@/components/public/Side";
 import Toc from "@/components/card/Toc";
 import PostProgressLinear from "@/components/plugins/PostProgressLinear";
 import github from "@/api/github";
+import gitalk from "@/config/gitalk";
+import 'gitalk/dist/gitalk.css'
+import Gitalk from "gitalk";
 
 export default {
   name: "Post",
@@ -54,86 +62,17 @@ export default {
         },
       },
       toc: [],
-      // vuetify树形视图的数据案例
-      items: [
-        {
-          id: 1,
-          name: 'Applications :',
-          children: [
-            {id: 2, name: 'Calendar : app'},
-            {id: 3, name: 'Chrome : app'},
-            {id: 4, name: 'Webstorm : app'},
-          ],
-        },
-        {
-          id: 5,
-          name: 'Documents :',
-          children: [
-            {
-              id: 6,
-              name: 'vuetify :',
-              children: [
-                {
-                  id: 7,
-                  name: 'src :',
-                  children: [
-                    {id: 8, name: 'index : ts'},
-                    {id: 9, name: 'bootstrap : ts'},
-                  ],
-                },
-              ],
-            },
-            {
-              id: 10,
-              name: 'material2 :',
-              children: [
-                {
-                  id: 11,
-                  name: 'src :',
-                  children: [
-                    {id: 12, name: 'v-btn : ts'},
-                    {id: 13, name: 'v-card : ts'},
-                    {id: 14, name: 'v-window : ts'},
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 15,
-          name: 'Downloads :',
-          children: [
-            {id: 16, name: 'October : pdf'},
-            {id: 17, name: 'November : pdf'},
-            {id: 18, name: 'Tutorial : html'},
-          ],
-        },
-        {
-          id: 19,
-          name: 'Videos :',
-          children: [
-            {
-              id: 20,
-              name: 'Tutorials :',
-              children: [
-                {id: 21, name: 'Basic layouts : mp4'},
-                {id: 22, name: 'Advanced techniques : mp4'},
-                {id: 23, name: 'All about app : dir'},
-              ],
-            },
-            {id: 24, name: 'Intro : mov'},
-            {id: 25, name: 'Conference introduction : avi'},
-          ],
-        },
-      ],
-
+      createDate: "",
+      lastDate: "",
     }
   },
   created() {
     this.initPost()
     this.getToc()
-    this.getLastDate()
+    this.getDate()
+  },
+  mounted() {
+    this.createGitalk()
   },
   methods: {
     initPost() {
@@ -141,9 +80,10 @@ export default {
       let title = this.$route.params.title
       this.post = this.$store.getters.POST_GET_POST(category, title)
     },
-    getLastDate() {
-      github.getLastDate(this.post.path).then(res => {
-        console.log(res.data[0].commit.committer.date)
+    getDate() {
+      github.getDate(this.post.path).then(res => {
+        this.createDate = new Date(res.data.slice(-1)[0].commit.committer.date).format("yyyy-MM-dd hh:mm:ss")
+        this.lastDate = new Date(res.data[0].commit.committer.date).format("yyyy-MM-dd hh:mm:ss")
       })
     },
     getToc() {
@@ -186,7 +126,16 @@ export default {
           )
         }
       })
+    },
+    createGitalk() {
+      // 传参id 获取gitalk配置
+      let params = gitalk.gitalkConf(this.$route.path)
+      // 实例化gitalk
+      var gitalkObj = new Gitalk(params)
+      // 挂载到html中
+      gitalkObj.render('gitalk-container')
     }
+
   }
 }
 </script>
