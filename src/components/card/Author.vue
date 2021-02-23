@@ -26,7 +26,7 @@
               size="100"
               tile
           >
-            <v-img :src="this.config.avatar"></v-img>
+            <v-img :src="this.$config.avatar"></v-img>
           </v-avatar>
         </v-card>
         <v-card-text>
@@ -34,24 +34,24 @@
           <!-- 签名 -->
           <v-row justify="center">
             <div class="font-weight-bold">
-              <p style="color: #9FBC82" class="mb-0">{{ this.config.sign }}</p>
+              <p style="color: #9FBC82" class="mb-0">{{ this.$config.sign }}</p>
               <hr class="mt-1">
             </div>
           </v-row>
 
           <!-- 社交图标 -->
           <v-row justify="space-around">
-            <v-btn icon target="_blank" v-show="this.config.twitter" :href="this.config.twitter">
+            <v-btn icon target="_blank" v-show="this.$config.twitter" :href="this.$config.twitter">
               <v-icon color="black darken-2">mdi-twitter</v-icon>
             </v-btn>
 
             <!-- github -->
-            <v-btn icon target="_blank" v-show="this.config.github" :href="this.config.github">
+            <v-btn icon target="_blank" v-show="this.$config.github" :href="this.$config.github">
               <v-icon color="black darken-2">mdi-github</v-icon>
             </v-btn>
 
             <!-- bilibili -->
-            <v-btn icon target="_blank" v-show="this.config.bilibili" :href="this.config.bilibili">
+            <v-btn icon target="_blank" v-show="this.$config.bilibili" :href="this.$config.bilibili">
               <svg t="1613193416821" class="icon" viewBox="0 0 1024 1024" version="1.1"
                    xmlns="http://www.w3.org/2000/svg"
                    p-id="4644" :width="iconSize" :height="iconSize">
@@ -62,7 +62,7 @@
             </v-btn>
 
             <!-- 知乎 -->
-            <v-btn icon target="_blank" v-show="this.config.zhihu" :href="this.config.zhihu">
+            <v-btn icon target="_blank" v-show="this.$config.zhihu" :href="this.$config.zhihu">
               <svg t="1613289039330" class="icon" viewBox="0 0 1024 1024" version="1.1"
                    xmlns="http://www.w3.org/2000/svg" p-id="1615" :width="iconSize" :height="iconSize">
                 <path
@@ -72,7 +72,7 @@
             </v-btn>
 
             <!-- 微博 -->
-            <v-btn icon target="_blank" v-show="this.config.weibo" :href="this.config.weibo">
+            <v-btn icon target="_blank" v-show="this.$config.weibo" :href="this.$config.weibo">
               <svg t="1613193580137" class="icon" viewBox="0 0 1024 1024" version="1.1"
                    xmlns="http://www.w3.org/2000/svg"
                    p-id="4916" :width="iconSize" :height="iconSize">

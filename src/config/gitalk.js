@@ -12,9 +12,14 @@ const gitalkConf = (id) => {
         repo: user.repo,
         owner: user.name,
         admin: [user.name],
-        id: id, // 在使用时赋值，用于区分不同页面显示不同的评论
+
+        // 在使用时赋值，用于区分不同页面显示不同的评论
+        id: id,
+        // 官方默认使用的跨域代理已经失效了
         proxy: 'https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token',
+        // 关闭手动创建issue
         createIssueManually: false,
+        // 禁用facebook的评论时遮罩背景效果
         distractionFreeMode: false
     }
 }

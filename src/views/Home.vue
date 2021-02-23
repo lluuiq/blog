@@ -4,7 +4,6 @@
     <!-- 中间 -->
     <v-main>
       <v-container class="main pt-0">
-        <!-- 栅格布局 -->
         <Nav></Nav>
         <router-view/>
       </v-container>
@@ -42,24 +41,25 @@ export default {
         height: '100%',
         background: '',
         backgroundSize: 'cover',
-      }
+      },
     }
   },
   methods: {
     getBackImg() {
       // 如果配置里有url则使用配置
-      if (this.config.backImg) {
-        this.appStyle.background = `url(${this.config.backImg}) fixed`
+      if (this.$config.backImg) {
+        this.appStyle.background = `url(${this.$config.backImg}) fixed`
       } else {
         // 没有配置则用static下的background
         const url = require('../static/img/background/background.jpg')
         this.appStyle.background = `url(${url}) fixed`
       }
-    }
+    },
   }
 }
 </script>
-<style lang="sass" scoped>
-.main
-  max-width: 1283px
+<style lang="scss" scoped>
+.main {
+  max-width: 1283px;
+}
 </style>

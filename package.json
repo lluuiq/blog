@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.0",
     "gitalk": "^1.7.0",
     "github-markdown-css": "^4.0.0",
     "gray-matter": "^4.0.2",

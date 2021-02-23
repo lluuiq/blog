@@ -4,14 +4,15 @@
       height="6"
       color="teal"
       buffer-value="0"
-      value="20"
+      :value="process"
       stream
   ></v-progress-linear>
 </template>
 
 <script>
 export default {
-  name: "PostProgressLinear"
+  name: "PostProgressLinear",
+  props: ['process']
 }
 </script>
 
